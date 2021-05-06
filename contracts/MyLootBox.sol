@@ -19,14 +19,14 @@ contract MyLootBox is ILootBox, Ownable, Pausable, ReentrancyGuard, MyFactory {
   event Warning(string message, address account);
 
   // Must be sorted by rarity
-  enum Class {
-    Common,
-    Rare,
-    Epic,
-    Legendary,
-    Divine,
-    Hidden
-  }
+  enum Class {epic}
+    
+   
+   
+ 
+   
+   
+ 
   uint256 constant NUM_CLASSES = 6;
 
   // NOTE: Price of the lootbox is set via sell orders on OpenSea
@@ -58,7 +58,7 @@ contract MyLootBox is ILootBox, Ownable, Pausable, ReentrancyGuard, MyFactory {
    */
   constructor(
     address _proxyRegistryAddress,
-    address _nftAddress
+    address _nftAddress 0x65ed3ca483a060e93c127a83b1c8db3587c8b568
   ) MyFactory(
     _proxyRegistryAddress,
     _nftAddress
@@ -358,7 +358,7 @@ contract MyLootBox is ILootBox, Ownable, Pausable, ReentrancyGuard, MyFactory {
    * @dev emit a Warning if we're not approved to transfer nftAddress
    */
   function _checkTokenApproval() internal {
-    MyCollectible nftContract = MyCollectible(nftAddress);
+    MyCollectible nftContract = MyCollectible(nftAddress);0x65ed3ca483a060e93c127a83b1c8db3587c8b568
     if (!nftContract.isApprovedForAll(owner(), address(this))) {
       emit Warning("Lootbox contract is not approved for trading collectible by:", owner());
     }
